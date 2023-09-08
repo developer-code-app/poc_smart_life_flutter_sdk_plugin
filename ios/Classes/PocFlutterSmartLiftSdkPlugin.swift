@@ -16,10 +16,6 @@ public class PocFlutterSmartLiftSdkPlugin: NSObject, FlutterPlugin, ThingSmartAc
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
-    case "getPlatformVersion":
-      result("iOS " + UIDevice.current.systemVersion)
-    case "register":
-      register(call, result: result)
     case "loginWithTicket":
       loginWithTicket(call, result: result)
     case "pairingDeviceAPMode":
@@ -28,27 +24,6 @@ public class PocFlutterSmartLiftSdkPlugin: NSObject, FlutterPlugin, ThingSmartAc
       result(FlutterMethodNotImplemented)
     }
   }
-
-    private func register(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-      guard
-        let args = call.arguments as? Dictionary<String, Any>,
-        let appKey = args["app_key"] as? String,
-        let secretKey = args["secret_key"] as? String
-      else {
-        let flutterError = FlutterError(
-          code: "ARGUMENTS_ERROR",
-          message: "Arguments missing.",
-          details: nil
-        );
-
-        return result(flutterError)
-      }
-       
-      ThingSmartSDK.sharedInstance().start(
-        withAppKey: appKey,
-        secretKey: secretKey
-      )
-    }
     
   private func loginWithTicket(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     guard
@@ -104,7 +79,7 @@ public class PocFlutterSmartLiftSdkPlugin: NSObject, FlutterPlugin, ThingSmartAc
       ssid: ssid,
       password: password,
       token: token,
-      timeout: TimeInterval(timeout ?? 200)
+      timeout: TimeInterval(timeout ?? 60)
     )
   }
     

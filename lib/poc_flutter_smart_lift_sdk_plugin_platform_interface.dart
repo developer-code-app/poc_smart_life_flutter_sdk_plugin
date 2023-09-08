@@ -24,14 +24,6 @@ abstract class PocFlutterSmartLiftSdkPluginPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
-  }
-
-  Future register({required String appKey, required String secretKey}) {
-    throw UnimplementedError('register() has not been implemented.');
-  }
-
   Future<String> loginWithTicket({required String ticket}) async {
     throw UnimplementedError('loginWithTicket() has not been implemented.');
   }

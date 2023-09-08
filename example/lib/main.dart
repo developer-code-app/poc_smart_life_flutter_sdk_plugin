@@ -34,18 +34,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final smartLift = PocFlutterSmartLiftSdkPlugin();
 
-  static const ticket = "";
-  static const token = "";
-
-  @override
-  void initState() {
-    super.initState();
-
-    smartLift.register(
-      appKey: '9gkqeyckm39umcm5h9am',
-      secretKey: 's584kn3e5aujfuut3wwe9fkvasfc34we',
-    );
-  }
+  static const ticket =
+      "ST-79fdf536d4cbbcbbe3e82fa86dbf5ceaJLn85dy4YmDtLk6cDRbQ";
+  static const token = "AZkSLPq8Lx4USv";
 
   @override
   Widget build(BuildContext context) {

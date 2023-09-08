@@ -12,26 +12,6 @@ class MethodChannelPocFlutterSmartLiftSdkPlugin
       const MethodChannel('poc_flutter_smart_lift_sdk_plugin');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version =
-        await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
-  }
-
-  @override
-  Future register({required String appKey, required String secretKey}) async {
-    final argument = {
-      'app_key': appKey,
-      'secret_key': secretKey,
-    };
-
-    return await methodChannel.invokeMethod(
-      'register',
-      argument,
-    );
-  }
-
-  @override
   Future<String> loginWithTicket({required String ticket}) async {
     final argument = {
       'ticket': ticket,
