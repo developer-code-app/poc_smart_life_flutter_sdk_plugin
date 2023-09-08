@@ -28,17 +28,21 @@ abstract class PocFlutterSmartLiftSdkPluginPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future start({required String appKey, required String secretKey}) {
-    throw UnimplementedError('start() has not been implemented.');
+  Future register({required String appKey, required String secretKey}) {
+    throw UnimplementedError('register() has not been implemented.');
   }
 
-  Future<String> startPairingDeviceWithAPMode({
+  Future<String> loginWithTicket({required String ticket}) async {
+    throw UnimplementedError('loginWithTicket() has not been implemented.');
+  }
+
+  Future<String> pairingDeviceAPMode({
     required String ssid,
     required String password,
     required String token,
   }) async {
     throw UnimplementedError(
-      'startPairingDeviceWithAPMode() has not been implemented.',
+      'pairingDeviceAPMode() has not been implemented.',
     );
   }
 }

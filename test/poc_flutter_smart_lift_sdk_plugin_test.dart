@@ -11,7 +11,7 @@ class MockPocFlutterSmartLiftSdkPluginPlatform
   Future<String?> getPlatformVersion() => Future.value('42');
 
   @override
-  Future<String> startPairingDeviceWithAPMode({
+  Future<String> pairingDeviceAPMode({
     required String ssid,
     required String password,
     required String token,
@@ -20,7 +20,12 @@ class MockPocFlutterSmartLiftSdkPluginPlatform
   }
 
   @override
-  Future start({required String appKey, required String secretKey}) {
+  Future register({required String appKey, required String secretKey}) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> loginWithTicket({required String ticket}) {
     throw UnimplementedError();
   }
 }

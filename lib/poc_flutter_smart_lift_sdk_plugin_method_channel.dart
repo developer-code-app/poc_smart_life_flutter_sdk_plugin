@@ -19,20 +19,32 @@ class MethodChannelPocFlutterSmartLiftSdkPlugin
   }
 
   @override
-  Future start({required String appKey, required String secretKey}) async {
+  Future register({required String appKey, required String secretKey}) async {
     final argument = {
       'app_key': appKey,
       'secret_key': secretKey,
     };
 
     return await methodChannel.invokeMethod(
-      'start',
+      'register',
       argument,
     );
   }
 
   @override
-  Future<String> startPairingDeviceWithAPMode({
+  Future<String> loginWithTicket({required String ticket}) async {
+    final argument = {
+      'ticket': ticket,
+    };
+
+    return await methodChannel.invokeMethod(
+      'loginWithTicket',
+      argument,
+    );
+  }
+
+  @override
+  Future<String> pairingDeviceAPMode({
     required String ssid,
     required String password,
     required String token,
@@ -44,7 +56,7 @@ class MethodChannelPocFlutterSmartLiftSdkPlugin
     };
 
     return await methodChannel.invokeMethod(
-      'startPairingDeviceWithAPMode',
+      'pairingDeviceAPMode',
       argument,
     );
   }

@@ -4,31 +4,26 @@ class PocFlutterSmartLiftSdkPlugin {
   Future<String?> getPlatformVersion() {
     return PocFlutterSmartLiftSdkPluginPlatform.instance.getPlatformVersion();
   }
-}
 
-class SmartLiftSdkPlugin {
-  static final SmartLiftSdkPlugin _instance = SmartLiftSdkPlugin._internal();
-
-  factory SmartLiftSdkPlugin.shared() {
-    return _instance;
-  }
-
-  SmartLiftSdkPlugin._internal();
-
-  Future start({required String appKey, required String secretKey}) {
-    return PocFlutterSmartLiftSdkPluginPlatform.instance.start(
+  Future register({required String appKey, required String secretKey}) {
+    return PocFlutterSmartLiftSdkPluginPlatform.instance.register(
       appKey: appKey,
       secretKey: secretKey,
     );
   }
 
-  Future<String> startPairingDeviceWithAPMode({
+  Future<String> loginWithTicket({required String ticket}) async {
+    return PocFlutterSmartLiftSdkPluginPlatform.instance.loginWithTicket(
+      ticket: ticket,
+    );
+  }
+
+  Future<String> pairingDeviceAPMode({
     required String ssid,
     required String password,
     required String token,
   }) async {
-    return PocFlutterSmartLiftSdkPluginPlatform.instance
-        .startPairingDeviceWithAPMode(
+    return PocFlutterSmartLiftSdkPluginPlatform.instance.pairingDeviceAPMode(
       ssid: ssid,
       password: password,
       token: token,
